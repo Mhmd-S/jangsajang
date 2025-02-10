@@ -170,7 +170,7 @@ const index = () => {
 			{/* Chicken */}
 			<div
 				id="chicken"
-				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8  md:scroll-mt-36"
+				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8  scroll-mt-36"
 			>
 				<h3 className="hidden md:block col-span-3 text-5xl font-bold">
 					Chicken Deobap
@@ -182,7 +182,7 @@ const index = () => {
 			{/* Beef */}
 			<div
 				id="beef"
-				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8 md:scroll-mt-36"
+				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8 scroll-mt-36"
 			>
 				<h3 className="hidden md:block col-span-3 text-5xl font-extrabold">
 					Beef Deobap
@@ -194,7 +194,7 @@ const index = () => {
 			{/* Vegan */}
 			<div
 				id="vegan"
-				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8  md:scroll-mt-36"
+				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8  scroll-mt-36"
 			>
 				<h3 className="hidden md:block col-span-3 text-5xl font-bold">
 					Vegan Deobap
@@ -206,7 +206,7 @@ const index = () => {
 			{/* K-Special */}
 			<div
 				id="kSpecial"
-				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8  md:scroll-mt-36"
+				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8  scroll-mt-36"
 			>
 				<h3 className="hidden md:block col-span-3 text-5xl font-bold">
 					K-Special Deobap
@@ -218,7 +218,7 @@ const index = () => {
 			{/* Sides */}
 			<div
 				id="sides"
-				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8  md:scroll-mt-36"
+				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8  scroll-mt-36"
 			>
 				<h3 className="hidden md:block col-span-3 text-5xl font-bold">
 					Sides Deobap
