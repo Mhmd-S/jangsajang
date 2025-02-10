@@ -6,15 +6,8 @@ import { motion } from 'framer-motion';
 export default function MediaCarousel({ mediaItems }) {
 	return (
 		<div className="relative bg-[#d64d1d] w-screen py-12 mx-auto overflow-hidden whitespace-nowrap">
-			<motion.div
-				animate={{
-					x: ['0%', '-100%'],
-				}}
-				transition={{
-					duration: 40,
-					repeat: Infinity,
-					ease: 'linear',
-				}}
+			<div
+
 				className="inline-flex items-start gap-8"
 			>
 				{mediaItems.map((item, index) =>
@@ -37,7 +30,7 @@ export default function MediaCarousel({ mediaItems }) {
 						/>
 					)
 				)}
-			</motion.div>
+			</div>
 		</div>
 	);
 }

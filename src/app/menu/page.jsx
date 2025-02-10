@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import { Drumstick, Beef, Vegan, Gem, Salad } from 'lucide-react';
 
@@ -10,6 +10,9 @@ const menuItems = [
 	{
 		name: '삼치덮밥',
 		nameEn: 'Samchi Deopbap',
+		price: 'RM 19.99',
+		description:
+			'A classic Korean dish with rice, seaweed, and vegetables. ',
 		image: '/images/bulgogi-bibimbap.jpg',
 		calories: '520',
 		protein: '22',
@@ -19,6 +22,9 @@ const menuItems = [
 	{
 		name: '오지어덮밥',
 		nameEn: 'Ojingeo Deopbap',
+		price: 'RM 19.99',
+		description:
+			'A classic Korean dish with rice, seaweed, and vegetables. ',
 		image: '/images/kimchi-bowl.jpg',
 		calories: '390',
 		protein: '35',
@@ -29,6 +35,9 @@ const menuItems = [
 	{
 		name: '양고기덮밥',
 		nameEn: 'Yanggogi Deopbap',
+		price: 'RM 19.99',
+		description:
+			'A classic Korean dish with rice, seaweed, and vegetables. ',
 		image: '/images/chicken-rice.jpg',
 		calories: '550',
 		protein: '44',
@@ -40,86 +49,119 @@ const menuItems = [
 
 const index = () => {
 	const [activeCategory, setActiveCategory] = useState('');
-
-	const handleScroll = (id) => {
-		document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-	};
-
-	const handleScrollSpy = () => {
-		const sections = ['chicken', 'beef', 'vegan', 'kSpecial', 'sides'];
-		const scrollPosition = window.scrollY + window.innerHeight / 2;
-
-		for (const section of sections) {
-			const element = document.getElementById(section);
-			if (
-				element.offsetTop <= scrollPosition &&
-				element.offsetTop + element.offsetHeight > scrollPosition
-			) {
-				setActiveCategory(section);
-				break;
-			}
-		}
-	};
+	const menuRef = useRef(null);
 
 	useEffect(() => {
-		window.addEventListener('scroll', handleScrollSpy);
-		return () => {
-			window.removeEventListener('scroll', handleScrollSpy);
+		const options = {
+			root: null,
+			rootMargin: '0px',
+			threshold: 0.3,
 		};
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					setActiveCategory(entry.target.id);
+					// Ensure menu item is visible if we're scrolling up
+					const menuItem = document.getElementById(
+						`menu-${entry.target.id}`
+					);
+					if (menuItem && !isElementInViewport(menuItem)) {
+						menuItem.scrollIntoView({
+							behavior: 'smooth',
+							block: 'nearest',
+							inline: 'center',
+						});
+					}
+				}
+			});
+		}, options);
+
+		// Observe all category sections
+		['chicken', 'beef', 'vegan', 'kSpecial', 'sides'].forEach((id) => {
+			const element = document.getElementById(id);
+			if (element) observer.observe(element);
+		});
+
+		return () => observer.disconnect();
 	}, []);
 
+	const handleScroll = (id) => {
+		document.getElementById(id).scrollIntoView({ behavior: 'smooth', inset });
+	};
+
+	const isElementInViewport = (el) => {
+		const rect = el.getBoundingClientRect();
+		return (
+			rect.top >= 0 &&
+			rect.left >= 0 &&
+			rect.bottom <=
+				(window.innerHeight || document.documentElement.clientHeight) &&
+			rect.right <=
+				(window.innerWidth || document.documentElement.clientWidth)
+		);
+	};
+
 	return (
-		<div className="text-[rgb(74,62,54)] pt-16">
-			<div className="flex flex-col md:grid md:grid-cols-[25%_75%]">
-				<h1 className="hidden md:block text-5xl font-bold text-center py-6 border-b border-[rgb(74,62,54)]">
-					MENU 메뉴
-				</h1>
+		<div className="text-[rgb(74,62,54)] pt-32">
+			<div className="flex flex-col pb-3">
 				{/* Menu Categories */}
-				<div className="fixed top-16 left-0 right-0 bg-white overflow-x-auto whitespace-nowrap px-4 py-8 border-b border-[rgb(74,62,54)] z-10">
-					<ul className="flex gap-12 font-bold uppercase">
+				<div className="fixed grid grid-cols-[25%_75%] top-16 left-0 right-0 bg-white overflow-x-auto whitespace-nowrap border-b border-[rgb(74,62,54)] z-10">
+					<h1 className="hidden h-full p-4 w-full md:block text-5xl font-bold text-center border-r border-[rgb(74,62,54)]">
+						MENU 메뉴
+					</h1>
+					<ul
+						ref={menuRef}
+						className="flex gap-12 scrollbar-hidden scrollbar-hide py-5 pl-6 px-12 font-bold uppercase md:justify-self-end md:py-0 md:px-0"
+					>
 						<li
+							id="menu-chicken"
 							onClick={() => handleScroll('chicken')}
-							className={`cursor-pointer flex items-center gap-2 ${
+							className={`cursor-pointer flex items-center justify-center flex-col gap-2 ${
 								activeCategory === 'chicken' ? 'underline' : ''
 							}`}
 						>
-							<Drumstick />
+							{activeCategory === 'chicken' && <Drumstick />}
 							Chicken Deobap
 						</li>
 						<li
+							id="menu-beef"
 							onClick={() => handleScroll('beef')}
-							className={`cursor-pointer flex items-center gap-2 ${
+							className={`cursor-pointer flex items-center justify-center flex-col gap-2 ${
 								activeCategory === 'beef' ? 'underline' : ''
 							}`}
 						>
-							<Beef />
+							{activeCategory === 'beef' && <Beef />}
 							Beef Deobap
 						</li>
 						<li
+							id="menu-vegan"
 							onClick={() => handleScroll('vegan')}
-							className={`cursor-pointer flex items-center gap-2 ${
+							className={`cursor-pointer flex items-center justify-center flex-col gap-2 ${
 								activeCategory === 'vegan' ? 'underline' : ''
 							}`}
 						>
-							<Vegan />
+							{activeCategory === 'vegan' && <Vegan />}
 							Vegan Deobap
 						</li>
 						<li
+							id="menu-kSpecial"
 							onClick={() => handleScroll('kSpecial')}
-							className={`cursor-pointer flex items-center gap-2 ${
+							className={`cursor-pointer flex items-center justify-center flex-col gap-2 ${
 								activeCategory === 'kSpecial' ? 'underline' : ''
 							}`}
 						>
-							<Gem />
+							{activeCategory === 'kSpecial' && <Gem />}
 							K-Special
 						</li>
 						<li
+							id="menu-sides"
 							onClick={() => handleScroll('sides')}
-							className={`cursor-pointer flex items-center gap-2 ${
+							className={`cursor-pointer flex items-center justify-center flex-col gap-2 pr-8 ${
 								activeCategory === 'sides' ? 'underline' : ''
 							}`}
 						>
-							<Salad />
+							{activeCategory === 'sides' && <Salad />}
 							Sides
 						</li>
 					</ul>
@@ -130,6 +172,7 @@ const index = () => {
 				id="chicken"
 				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8"
 			>
+				<h3 className="hidden md:block col-span-3 text-5xl font-bold">Chicken Deobap</h3>
 				{menuItems.map((item, index) => (
 					<MenuCard key={index} index={index} item={item} />
 				))}
@@ -139,6 +182,7 @@ const index = () => {
 				id="beef"
 				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8"
 			>
+				<h3 className="hidden md:block col-span-3 text-5xl font-extrabold">Beef Deobap</h3>
 				{menuItems.map((item, index) => (
 					<MenuCard key={index} index={index} item={item} />
 				))}
@@ -148,6 +192,7 @@ const index = () => {
 				id="vegan"
 				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8"
 			>
+				<h3 className="hidden md:block col-span-3 text-5xl font-bold">Vegan Deobap</h3>
 				{menuItems.map((item, index) => (
 					<MenuCard key={index} index={index} item={item} />
 				))}
@@ -157,6 +202,7 @@ const index = () => {
 				id="kSpecial"
 				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8"
 			>
+				<h3 className="hidden md:block col-span-3 text-5xl font-bold">K-Special Deobap</h3>
 				{menuItems.map((item, index) => (
 					<MenuCard key={index} index={index} item={item} />
 				))}
@@ -166,6 +212,7 @@ const index = () => {
 				id="sides"
 				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8"
 			>
+				<h3 className="hidden md:block col-span-3 text-5xl font-bold">Sides Deobap</h3>
 				{menuItems.map((item, index) => (
 					<MenuCard key={index} index={index} item={item} />
 				))}

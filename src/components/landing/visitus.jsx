@@ -24,10 +24,7 @@ export default function VisitUs() {
 					</div>
 
 					{/* Text Content */}
-					<motion.div
-						initial={{ opacity: 0, x: -50 }}
-						whileInView={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.6 }}
+					<div
 						className="relative z-10 px-8"
 					>
 						<h2 className="text-[#00072D] text-3xl lg:text-5xl font-bold leading-none mb-8">
@@ -48,7 +45,7 @@ export default function VisitUs() {
 							Come experience our warm hospitality and authentic
 							Korean dishes in our welcoming restaurant.
 						</p>
-						<motion.div
+						<div
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}
 						>
@@ -58,8 +55,8 @@ export default function VisitUs() {
 							>
 								VISIT US!
 							</Button>
-						</motion.div>
-					</motion.div>
+						</div>
+					</div>
 				</div>
 			</div>
 

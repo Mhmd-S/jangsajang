@@ -1,7 +1,6 @@
 'use client';
 
 import MenuCard from '@/components/MenuCard';
-import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
 const menuItems = [
@@ -83,7 +82,7 @@ export default function BestSellers() {
 									ref={eyeRefs[index]}
 									className="h-4 w-4 rounded-full bg-white border-2 border-black relative"
 								>
-									<motion.div
+									<div
 										className="h-2 w-2 rounded-full bg-black absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
 										animate={() => ({
 											x: getEyeRotation(eyeRefs[index]).x,

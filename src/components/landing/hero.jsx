@@ -7,10 +7,8 @@ const Hero = () => {
 		<section className="flex flex-col-reverse md:grid md:grid-cols-[45%_55%] md:pt-12 ">
 			{/* Left Side */}
 			<div className="flex flex-col bg-[#efe5d9] text-[#4a3e36] justify-center p-8 md:border-r md:border-blue-950 lg:p-16">
-				<motion.div
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.6 }}
+				<div
+
 					className="space-y-6"
 				>
 					<h1 className="flex flex-col gap-2 text-5xl md:text-[85px] leading-none  lg:max-w-[12ch]">
@@ -35,7 +33,7 @@ const Hero = () => {
 							LEARN MORE
 						</Button>
 					</div>
-				</motion.div>
+				</div>
 			</div>
 
 			{/* Right Side */}

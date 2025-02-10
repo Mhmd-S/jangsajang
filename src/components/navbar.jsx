@@ -31,9 +31,7 @@ export default function Navbar() {
 	];
 
 	return (
-		<motion.nav
-			initial={{ y: -100 }}
-			animate={{ y: 0 }}
+		<nav
 			className="h-16 w-screen bg-white text-[#6a3116] flex items-center justify-between px-2 sm:px-8 fixed z-50 border-b border-blue-950"
 		>
 			<div className="h-full flex items-center gap-2">
@@ -121,6 +119,6 @@ export default function Navbar() {
 					</div>
 				</SheetContent>
 			</Sheet>
-		</motion.nav>
+		</nav>
 	);
 }
