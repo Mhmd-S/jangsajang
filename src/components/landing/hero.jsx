@@ -6,22 +6,22 @@ const Hero = () => {
 	return (
 		<section className="flex flex-col-reverse md:grid md:grid-cols-[45%_55%] md:pt-12 ">
 			{/* Left Side */}
-			<div className="flex flex-col bg-[#efe5d9] text-[#4a3e36] justify-center p-8 md:border-r md:border-blue-950 lg:p-16">
+			<div className="flex flex-col bg-[#efe5d9] text-[#2d1609] justify-center p-8 md:border-r md:border-blue-950 lg:p-16">
 				<div
 
 					className="space-y-6"
 				>
-					<h1 className="flex flex-col gap-2 text-5xl md:text-[85px] leading-none  lg:max-w-[12ch]">
+					<h1 className="flex flex-col gap-2 text-5xl md:text-6xl leading-none lg:max-w-[12ch]">
 						<span className="font-bold text-5xl md:text-[65px]">
 							맛있는 더밥
 						</span>
 						<span className="font-semibold">Korean Rice Bowl</span>
-						<span className="flex flex-col md:text-[50px]">
+						<span className="flex flex-col md:text-4xl">
 							<span className="text-xs">starting from</span>
 							RM19.90
 						</span>
 					</h1>
-					<p className="text-sm md:text-xl max-w-md">
+					<p className="text-sm md:text-lg max-w-md">
 						Experience the perfect blend of Korean flavors and fresh
 						ingredients in our signature bibimbap bowl
 					</p>

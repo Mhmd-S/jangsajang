@@ -1,6 +1,7 @@
 'use client';
 
 import MenuCard from '@/components/MenuCard';
+import { motion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
 const menuItems = [
@@ -9,8 +10,9 @@ const menuItems = [
 		nameEn: 'Samchi Deopbap',
 		image: '/images/bulgogi-bibimbap.jpg',
 		calories: '520',
+		price: 'RM19.99',
+		description: 'lorem lorem lorem lorem',
 		protein: '22',
-		bgColor: 'bg-[#4285F4]',
 		action: 'CRUNCH IT',
 	},
 	{
@@ -19,7 +21,8 @@ const menuItems = [
 		image: '/images/kimchi-bowl.jpg',
 		calories: '390',
 		protein: '35',
-		bgColor: 'bg-[#FF9900]',
+		price: 'RM19.99',
+		description: 'lorem lorem lorem lorem',
 		action: 'MUNCH IT',
 		isGreen: true,
 	},
@@ -29,7 +32,8 @@ const menuItems = [
 		image: '/images/chicken-rice.jpg',
 		calories: '550',
 		protein: '44',
-		bgColor: 'bg-[#EA4335]',
+		price: 'RM19.99',
+		description: 'lorem lorem lorem lorem',
 		action: 'LUNCH IT',
 		isNew: true,
 	},
@@ -72,7 +76,7 @@ export default function BestSellers() {
 			<div className="container mx-auto">
 				<div className="text-center mb-16">
 					<div className="flex items-center justify-center gap-2 mb-4">
-						<span className="text-[#0066FF] font-bold text-2xl">
+						<span className="text-[#6a3116] font-bold text-2xl">
 							MOST
 						</span>
 						<span className="inline-flex gap-1">
@@ -82,7 +86,7 @@ export default function BestSellers() {
 									ref={eyeRefs[index]}
 									className="h-4 w-4 rounded-full bg-white border-2 border-black relative"
 								>
-									<div
+									<motion.div
 										className="h-2 w-2 rounded-full bg-black absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
 										animate={() => ({
 											x: getEyeRotation(eyeRefs[index]).x,
@@ -97,11 +101,11 @@ export default function BestSellers() {
 								</div>
 							))}
 						</span>
-						<span className="text-[#0066FF] font-bold text-2xl">
+						<span className="text-[#6a3116] font-bold text-2xl">
 							CRAVED
 						</span>
 					</div>
-					<h2 className="text-blue-900 text-[2.5rem] font-bold text-center md:text-8xl ">
+					<h2 className="text-[#2d1609] text-[2.5rem] font-bold text-center md:text-8xl ">
 						Favoriting encouraged
 					</h2>
 				</div>

@@ -25,7 +25,7 @@ const MenuCard = ({ item }) => {
 					</div>
 				</div>
 				{/* Information Container */}
-				<div className="text-center w-full bg-white h-full py-6 border-t-2 border-[rgb(74,62,54)]">
+				<div className="text-[#2d1609] text-center w-full bg-white h-full py-6 border-t-2 border-[rgb(74,62,54)]">
 					<h3 className="text-[rgb(74,62,54)] text-lg font-medium mb-1 ">
 						{item.name}
 					</h3>

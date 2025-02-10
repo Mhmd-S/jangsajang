@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} font-space-grotesk overflow-x-hidden w-screen antialiased`}
+				className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable}  font-space-grotesk overflow-x-hidden w-screen antialiased`}
 			>
 				<Navbar />
 				{children}

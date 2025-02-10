@@ -87,7 +87,7 @@ const index = () => {
 	}, []);
 
 	const handleScroll = (id) => {
-		document.getElementById(id).scrollIntoView({ behavior: 'smooth', inset });
+		document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
 	};
 
 	const isElementInViewport = (el) => {
@@ -170,9 +170,11 @@ const index = () => {
 			{/* Chicken */}
 			<div
 				id="chicken"
-				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8"
+				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8  md:scroll-mt-36"
 			>
-				<h3 className="hidden md:block col-span-3 text-5xl font-bold">Chicken Deobap</h3>
+				<h3 className="hidden md:block col-span-3 text-5xl font-bold">
+					Chicken Deobap
+				</h3>
 				{menuItems.map((item, index) => (
 					<MenuCard key={index} index={index} item={item} />
 				))}
@@ -180,9 +182,11 @@ const index = () => {
 			{/* Beef */}
 			<div
 				id="beef"
-				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8"
+				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8 md:scroll-mt-36"
 			>
-				<h3 className="hidden md:block col-span-3 text-5xl font-extrabold">Beef Deobap</h3>
+				<h3 className="hidden md:block col-span-3 text-5xl font-extrabold">
+					Beef Deobap
+				</h3>
 				{menuItems.map((item, index) => (
 					<MenuCard key={index} index={index} item={item} />
 				))}
@@ -190,9 +194,11 @@ const index = () => {
 			{/* Vegan */}
 			<div
 				id="vegan"
-				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8"
+				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8  md:scroll-mt-36"
 			>
-				<h3 className="hidden md:block col-span-3 text-5xl font-bold">Vegan Deobap</h3>
+				<h3 className="hidden md:block col-span-3 text-5xl font-bold">
+					Vegan Deobap
+				</h3>
 				{menuItems.map((item, index) => (
 					<MenuCard key={index} index={index} item={item} />
 				))}
@@ -200,9 +206,11 @@ const index = () => {
 			{/* K-Special */}
 			<div
 				id="kSpecial"
-				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8"
+				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8  md:scroll-mt-36"
 			>
-				<h3 className="hidden md:block col-span-3 text-5xl font-bold">K-Special Deobap</h3>
+				<h3 className="hidden md:block col-span-3 text-5xl font-bold">
+					K-Special Deobap
+				</h3>
 				{menuItems.map((item, index) => (
 					<MenuCard key={index} index={index} item={item} />
 				))}
@@ -210,9 +218,11 @@ const index = () => {
 			{/* Sides */}
 			<div
 				id="sides"
-				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8"
+				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8  md:scroll-mt-36"
 			>
-				<h3 className="hidden md:block col-span-3 text-5xl font-bold">Sides Deobap</h3>
+				<h3 className="hidden md:block col-span-3 text-5xl font-bold">
+					Sides Deobap
+				</h3>
 				{menuItems.map((item, index) => (
 					<MenuCard key={index} index={index} item={item} />
 				))}
