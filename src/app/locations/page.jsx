@@ -102,11 +102,11 @@ export default function LocationFinder() {
 	};
 
 	return (
-		<div className="grid grid-cols-[25%,75%] min-h-screen border pt-16 relative">
+		<div className="grid grid-cols-[35%_65%] md:grid-cols-[25%,75%] min-h-screen border pt-16 relative">
 			{/* Left Sidebar / States */}
 			<div className="sticky h-screen top-14 border-r border-b border-[rgb(74,62,54)] bg-white">
-				<div className="p-6">
-					<h1 className="text-4xl px-2 font-bold text-[rgb(74,62,54)] mb-6">
+				<div className="p-2 pt-8 md:p-6">
+					<h1 className="text-xs md:text-4xl p-2 font-bold text-[rgb(74,62,54)] mb-6">
 						우리의 위치
 						<br />
 						Our Locations
@@ -117,7 +117,7 @@ export default function LocationFinder() {
 								<Button
 									key={state.name}
 									variant="ghost"
-									className={`w-full justify-between h-14 text-xl font-bold ${
+									className={`w-full justify-between h-14 text-md p-0 md:text-xl font-bold ${
 										selectedState.name === state.name
 											? 'text-[#6a3116]'
 											: 'text-[rgb(74,62,54)]'
@@ -125,7 +125,6 @@ export default function LocationFinder() {
 									onClick={() => handleScroll(state.name)}
 								>
 									{state.name}
-									<ChevronDown className="h-5 w-5 text-[rgb(74,62,54)]" />
 								</Button>
 							))}
 						</div>
@@ -141,18 +140,18 @@ export default function LocationFinder() {
 						id={state.name}
 						className="border-b p-6 md:p-12 border-[rgb(74,62,54)] scroll-mt-28"
 					>
-						<div className="flex justify-between items-center">
-							<h2 className="text-6xl font-bold text-[rgb(74,62,54)]">
+						<div className="flex flex-col md:flex-row justify-between md:items-center">
+							<h2 className="text-3xl md:text-6xl font-bold text-[rgb(74,62,54)]">
 								{state.name}
 							</h2>
-							<span className="text-[rgb(74,62,54)]">
+							<span className="text-xs md:text-md text-[rgb(74,62,54)]">
 								{state.locations.length} Locations
 							</span>
 						</div>
 						<div className=" divide-y">
 							{state.locations.map((location) => (
 								<div key={location.city} className="py-12">
-									<h3 className="text-xl font-bold text-[rgb(74,62,54)]">
+									<h3 className="text-md md:text-xl font-bold text-[rgb(74,62,54)]">
 										{location.city}
 									</h3>
 									<p className="text-lg text-[rgb(74,62,54)]">
