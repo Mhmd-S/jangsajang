@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { MoveRight, ChevronDown } from 'lucide-react';
 
 import { Input } from '@/components/ui/input';
@@ -25,42 +25,92 @@ const states = [
 	},
 	{
 		name: 'Florida',
-		locations: [],
+		locations: [
+			{
+				city: 'FAIRFIELD',
+				address: '2267 Black Rock Turnpike',
+				unit: 'Unit 15',
+			},
+			{
+				city: 'WEST HARTFORD (BISHOPS CORNER)',
+				address: '2538 Albany Ave',
+			},
+		],
 	},
 	{
 		name: 'Illinois',
-		locations: [],
+		locations: [
+			{
+				city: 'FAIRFIELD',
+				address: '2267 Black Rock Turnpike',
+				unit: 'Unit 15',
+			},
+			{
+				city: 'WEST HARTFORD (BISHOPS CORNER)',
+				address: '2538 Albany Ave',
+			},
+		],
 	},
 ];
 
 export default function LocationFinder() {
-	const [selectedState, setSelectedState] = React.useState(states[0]);
-	const [searchQuery, setSearchQuery] = React.useState('');
+	const [selectedState, setSelectedState] = useState(states[0]);
+	const [activeState, setActiveState] = useState('');
+	const [searchQuery, setSearchQuery] = useState('');
+	const statesRef = useRef(null);
+
+	useEffect(() => {
+		const options = {
+			root: null,
+			rootMargin: '0px',
+			threshold: 0.3,
+		};
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					setActiveState(entry.target.id);
+					const menuItem = document.getElementById(
+						`state-${entry.target.id}`
+					);
+					if (menuItem && !isElementInViewport(menuItem)) {
+						menuItem.scrollIntoView({
+							behavior: 'smooth',
+							block: 'nearest',
+							inline: 'center',
+						});
+					}
+				}
+			});
+		}, options);
+
+		// Observe all state sections
+		states.forEach((state) => {
+			const element = document.getElementById(state.name);
+			if (element) observer.observe(element);
+		});
+
+		return () => observer.disconnect();
+	}, []);
+
+	const handleScroll = (stateName) => {
+		const element = document.getElementById(stateName);
+		if (element) {
+			element.scrollIntoView({ behavior: 'smooth' });
+		}
+		setSelectedState(states.find((state) => state.name === stateName));
+	};
 
 	return (
-		<div className="grid md:grid-cols-[300px,1fr] min-h-screen border pt-20">
-			{/* Left Sidebar */}
-			<div className="border-r bg-white">
+		<div className="grid grid-cols-[25%,75%] min-h-screen border pt-16 relative">
+			{/* Left Sidebar / States */}
+			<div className="sticky h-screen top-14 border-r border-b border-[rgb(74,62,54)] bg-white">
 				<div className="p-6">
-					<h1 className="text-4xl font-bold text-[#1a1a4b] mb-6">
-					Find a Location
+					<h1 className="text-4xl px-2 font-bold text-[rgb(74,62,54)] mb-6">
+						우리의 위치
+						<br />
+						Our Locations
 					</h1>
-					<div className="relative mb-6">
-						<Input
-							type="text"
-							placeholder="Search by zip code"
-							value={searchQuery}
-							onChange={(e) => setSearchQuery(e.target.value)}
-							className="pr-12 border-2 border-[#1a1a4b] rounded-md h-12"
-						/>
-						<Button
-							size="icon"
-							className="absolute right-2 top-1/2 -translate-y-1/2"
-							variant="ghost"
-						>
-							<MoveRight className="h-5 w-5 text-[#1a1a4b]" />
-						</Button>
-					</div>
 					<ScrollArea className="h-[calc(100vh-200px)]">
 						<div className="space-y-1 pr-4">
 							{states.map((state) => (
@@ -69,13 +119,13 @@ export default function LocationFinder() {
 									variant="ghost"
 									className={`w-full justify-between h-14 text-xl font-bold ${
 										selectedState.name === state.name
-											? 'text-blue-500'
-											: 'text-[#1a1a4b]'
+											? 'text-[#6a3116]'
+											: 'text-[rgb(74,62,54)]'
 									}`}
-									onClick={() => setSelectedState(state)}
+									onClick={() => handleScroll(state.name)}
 								>
 									{state.name}
-									<ChevronDown className="h-5 w-5 text-blue-500" />
+									<ChevronDown className="h-5 w-5 text-[rgb(74,62,54)]" />
 								</Button>
 							))}
 						</div>
@@ -83,33 +133,41 @@ export default function LocationFinder() {
 				</div>
 			</div>
 
-			{/* Right Content */}
-			<div className="p-6 md:p-12 bg-[#fafafa]">
-				<div className="flex justify-between items-center mb-16">
-					<h2 className="text-6xl font-bold text-[#1a1a4b]">
-						{selectedState.name}
-					</h2>
-					<span className="text-[#1a1a4b]">
-						{selectedState.locations.length} Locations
-					</span>
-				</div>
-				<div className="space-y-12">
-					{selectedState.locations.map((location) => (
-						<div key={location.city} className="space-y-2">
-							<h3 className="text-xl font-bold text-[#1a1a4b]">
-								{location.city}
-							</h3>
-							<p className="text-lg text-[#1a1a4b]">
-								{location.address}
-							</p>
-							{location.unit && (
-								<p className="text-lg text-[#1a1a4b]">
-									{location.unit}
-								</p>
-							)}
+			{/* Right Content / Branches */}
+			<div className="col-start-2 flex flex-col gap-12 bg-[#fafafa]">
+				{states.map((state) => (
+					<div
+						key={state.name}
+						id={state.name}
+						className="border-b p-6 md:p-12 border-[rgb(74,62,54)] scroll-mt-28"
+					>
+						<div className="flex justify-between items-center">
+							<h2 className="text-6xl font-bold text-[rgb(74,62,54)]">
+								{state.name}
+							</h2>
+							<span className="text-[rgb(74,62,54)]">
+								{state.locations.length} Locations
+							</span>
 						</div>
-					))}
-				</div>
+						<div className=" divide-y">
+							{state.locations.map((location) => (
+								<div key={location.city} className="py-12">
+									<h3 className="text-xl font-bold text-[rgb(74,62,54)]">
+										{location.city}
+									</h3>
+									<p className="text-lg text-[rgb(74,62,54)]">
+										{location.address}
+									</p>
+									{location.unit && (
+										<p className="text-lg text-[rgb(74,62,54)]">
+											{location.unit}
+										</p>
+									)}
+								</div>
+							))}
+						</div>
+					</div>
+				))}
 			</div>
 		</div>
 	);

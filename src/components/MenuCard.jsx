@@ -13,7 +13,7 @@ const MenuCard = ({ item }) => {
 					className={`relative h-1/2 w-full aspect-video overflow-hidden bg-[#efe5d9]`}
 				>
 					<div className="w-full h-full flex items-center justify-center relative">
-						<p className="absolute top-4 right-4 px-3 font-bold text-lg bg-white rounded-3xl border-2 border-[rgb(74,62,54)] shadow-[4px_3px_0px_2px_rgb(74,62,54)]">
+						<p className="absolute top-4 right-4 px-3 font-bold text-md md:text-lg bg-white rounded-3xl border-2 border-[rgb(74,62,54)] shadow-[4px_3px_0px_2px_rgb(74,62,54)]">
 							{item.price}
 						</p>
 
