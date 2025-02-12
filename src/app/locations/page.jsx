@@ -112,7 +112,7 @@ export default function LocationFinder() {
 						Our Locations
 					</h1>
 					<ScrollArea className="h-[calc(100vh-200px)]">
-						<div className="space-y-1 pr-4">
+						<div className="space-y-1 md:pl-4 pr-4">
 							{states.map((state) => (
 								<Button
 									key={state.name}

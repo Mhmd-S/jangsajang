@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
 import {
 	NavigationMenu,
@@ -25,15 +24,10 @@ import {
 export default function Navbar() {
 	const [isOpen, setIsOpen] = useState(false);
 
-	const menuItems = [
-		{ title: 'Menu', items: ['Rice Bowls', 'Side Dishes', 'Beverages'] },
-		{ title: 'Locations', items: ['Downtown', 'Uptown', 'Eastside'] },
-	];
+	const menuItems = ['Menu', 'Locations'];
 
 	return (
-		<nav
-			className="h-16 w-screen bg-white text-[#6a3116] flex items-center justify-between px-2 sm:px-8 fixed z-50 border-b border-blue-950"
-		>
+		<nav className="h-16 w-screen bg-white text-[#6a3116] flex items-center justify-between px-2 sm:px-8 fixed z-50 border-b border-blue-950">
 			<div className="h-full flex items-center gap-2">
 				<Image
 					src="/images/logo.png"
@@ -41,34 +35,26 @@ export default function Navbar() {
 					width={40}
 					height={40}
 				/>
-				<h1 className="flex text-sm sm:text-md flex-col">
-					<span>덮밥장사장</span>
-					<span>Jangsajang Deobap</span>
-				</h1>
+				<Link href="/">
+					<h1 className="flex text-sm sm:text-md flex-col">
+						<span>덮밥장사장</span>
+						<span>Jangsajang Deobap</span>
+					</h1>
+				</Link>
 			</div>
 
 			<div className="hidden md:flex w-fit items-center md:justify-self-end space-x-4 sm:space-x-8">
 				<NavigationMenu>
 					<NavigationMenuList>
 						{menuItems.map((menu) => (
-							<NavigationMenuItem key={menu.title}>
-								<NavigationMenuTrigger>
-									{menu.title}
-								</NavigationMenuTrigger>
-								<NavigationMenuContent>
-									<div className="grid gap-3 p-4 w-[400px]">
-										{menu.items.map((item) => (
-											<NavigationMenuLink
-												key={item}
-												href={`#${item
-													.toLowerCase()
-													.replace(' ', '-')}`}
-											>
-												{item}
-											</NavigationMenuLink>
-										))}
-									</div>
-								</NavigationMenuContent>
+							<NavigationMenuItem className="px-4" key={menu}>
+								<NavigationMenuLink
+									href={`${menu
+										.toLowerCase()
+										.replace(' ', '-')}`}
+								>
+									{menu}
+								</NavigationMenuLink>
 							</NavigationMenuItem>
 						))}
 					</NavigationMenuList>
@@ -93,20 +79,8 @@ export default function Navbar() {
 					</SheetHeader>
 					<div className="grid gap-4 py-4">
 						{menuItems.map((menu) => (
-							<div key={menu.title} className="grid gap-2">
-								<h3 className="font-semibold">{menu.title}</h3>
-								{menu.items.map((item) => (
-									<Link
-										key={item}
-										href={`#${item
-											.toLowerCase()
-											.replace(' ', '-')}`}
-										className="text-sm"
-										onClick={() => setIsOpen(false)}
-									>
-										{item}
-									</Link>
-								))}
+							<div key={menu} className="grid gap-2">
+								<Link className="font-semibold">{menu}</Link>
 							</div>
 						))}
 						<Button
