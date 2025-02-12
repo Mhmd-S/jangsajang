@@ -82,7 +82,7 @@ export default function Navbar() {
 										width={40}
 										height={40}
 									/>
-									<h1 className="flex text-sm sm:text-md flex-col">
+									<h1 className="flex text-[#6a3116] text-xs sm:text-md flex-col">
 										<span>덮밥장사장</span>
 										<span>Jangsajang Deobap</span>
 									</h1>
