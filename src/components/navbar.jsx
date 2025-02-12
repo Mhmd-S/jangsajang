@@ -28,20 +28,18 @@ export default function Navbar() {
 
 	return (
 		<nav className="h-16 w-screen bg-white text-[#6a3116] flex items-center justify-between px-2 sm:px-8 fixed z-50 border-b border-blue-950">
-			<div className="h-full flex items-center gap-2">
+			<Link href="/" className="h-full flex items-center gap-2">
 				<Image
 					src="/images/logo.png"
 					alt="Logo"
 					width={40}
 					height={40}
 				/>
-				<Link href="/">
-					<h1 className="flex text-sm sm:text-md flex-col">
-						<span>덮밥장사장</span>
-						<span>Jangsajang Deobap</span>
-					</h1>
-				</Link>
-			</div>
+				<h1 className="flex text-sm sm:text-md flex-col">
+					<span>덮밥장사장</span>
+					<span>Jangsajang Deobap</span>
+				</h1>
+			</Link>
 
 			<div className="hidden md:flex w-fit items-center md:justify-self-end space-x-4 sm:space-x-8">
 				<NavigationMenu>
@@ -75,12 +73,34 @@ export default function Navbar() {
 				</SheetTrigger>
 				<SheetContent side="left">
 					<SheetHeader>
-						<SheetTitle>Menu</SheetTitle>
+						<SheetTitle>
+							<Link href="/">
+								<div className="h-full flex items-center gap-2">
+									<Image
+										src="/images/logo.png"
+										alt="Logo"
+										width={40}
+										height={40}
+									/>
+									<h1 className="flex text-sm sm:text-md flex-col">
+										<span>덮밥장사장</span>
+										<span>Jangsajang Deobap</span>
+									</h1>
+								</div>
+							</Link>
+						</SheetTitle>
 					</SheetHeader>
 					<div className="grid gap-4 py-4">
 						{menuItems.map((menu) => (
 							<div key={menu} className="grid gap-2">
-								<Link className="font-semibold">{menu}</Link>
+								<Link
+									href={`${menu
+										.toLowerCase()
+										.replace(' ', '-')}`}
+									className="font-semibold"
+								>
+									{menu}
+								</Link>
 							</div>
 						))}
 						<Button
