@@ -117,7 +117,7 @@ export default function LocationFinder() {
 								<Button
 									key={state.name}
 									variant="ghost"
-									className={`w-full justify-between h-14 text-md p-0 md:text-xl font-bold ${
+									className={`w-full justify-between h-14 text-md p-0 text-xs md:text-xl font-bold ${
 										selectedState.name === state.name
 											? 'text-[#6a3116]'
 											: 'text-[rgb(74,62,54)]'
@@ -141,7 +141,7 @@ export default function LocationFinder() {
 						className="border-b p-6 md:p-12 border-[rgb(74,62,54)] scroll-mt-28"
 					>
 						<div className="flex flex-col md:flex-row justify-between md:items-center">
-							<h2 className="text-3xl md:text-6xl font-bold text-[rgb(74,62,54)]">
+							<h2 className="text-2xl md:text-6xl font-bold text-[rgb(74,62,54)]">
 								{state.name}
 							</h2>
 							<span className="text-xs md:text-md text-[rgb(74,62,54)]">
