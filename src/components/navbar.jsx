@@ -7,14 +7,13 @@ import { Button } from '@/components/ui/button';
 import { Menu } from 'lucide-react';
 import {
 	NavigationMenu,
-	NavigationMenuContent,
 	NavigationMenuItem,
 	NavigationMenuLink,
 	NavigationMenuList,
-	NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
 import {
 	Sheet,
+	SheetClose,
 	SheetContent,
 	SheetHeader,
 	SheetTitle,
@@ -27,7 +26,7 @@ export default function Navbar() {
 	const menuItems = ['Menu', 'Locations'];
 
 	return (
-		<nav className="h-16 w-screen bg-white text-[#6a3116] flex items-center justify-between px-2 sm:px-8 fixed z-50 border-b border-blue-950">
+		<nav className="h-16 w-screen bg-white text-[#6a3116] flex items-center justify-between px-2 sm:px-8 fixed z-50 border-b border-[#6a3116]">
 			<Link href="/" className="h-full flex items-center gap-2">
 				<Image
 					src="/images/logo.png"
@@ -73,34 +72,39 @@ export default function Navbar() {
 				</SheetTrigger>
 				<SheetContent side="left">
 					<SheetHeader>
-						<SheetTitle>
-							<Link href="/">
-								<div className="h-full flex items-center gap-2">
+						<SheetTitle className="mr-6 md:mr-0">
+							<SheetClose asChild>
+								<Link
+									className="w-fit flex items-center mr-2 gap-2"
+									href="/"
+								>
 									<Image
 										src="/images/logo.png"
 										alt="Logo"
 										width={40}
 										height={40}
 									/>
-									<h1 className="flex text-[#6a3116] text-xs sm:text-md flex-col">
+									<h1 className="flex text-[#6a3116] text-left text-xs sm:text-md flex-col">
 										<span>덮밥장사장</span>
 										<span>Jangsajang Deobap</span>
 									</h1>
-								</div>
-							</Link>
+								</Link>
+							</SheetClose>
 						</SheetTitle>
 					</SheetHeader>
-					<div className="grid gap-4 py-4">
+					<div className="grid gap-4 py-4  mt-4">
 						{menuItems.map((menu) => (
 							<div key={menu} className="grid gap-2">
-								<Link
-									href={`${menu
-										.toLowerCase()
-										.replace(' ', '-')}`}
-									className="font-semibold"
-								>
-									{menu}
-								</Link>
+								<SheetClose asChild>
+									<Link
+										href={`${menu
+											.toLowerCase()
+											.replace(' ', '-')}`}
+										className="font-semibold"
+									>
+										{menu}
+									</Link>
+								</SheetClose>
 							</div>
 						))}
 						<Button
