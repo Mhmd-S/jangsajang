@@ -40,18 +40,11 @@ export default function Feature() {
 			{/* Image */}
 			<div className="relative">
 				<Image
-					src={`/images/korean-food.jpg`}
+					src={`/images/fresh.png`}
 					alt="Delicious Korean food"
 					fill
-					className="object-cover"
+					className="w-3/4 aspect-square"
 				/>
-
-				{/* Fresh Badge */}
-				<div className="absolute -top-4 -right-4 z-20">
-					<div className="bg-[#0066FF] relative overflow-hidden] font-bold py-2 px-4 rounded-full transform rotate-12">
-						Fresh!
-					</div>
-				</div>
 			</div>
 		</div>
 	);

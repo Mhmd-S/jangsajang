@@ -39,7 +39,7 @@ const Hero = () => {
 			{/* Right Side */}
 			<div className="bg-[#d64d1d] relative h-[40vh] lg:h-auto">
 				<Image
-					src={`/images/bibimbap-bowl.png`}
+					src={`/images/menu/food1.png`}
 					alt="Delicious Bibimbap Bowl"
 					fill
 					className="object-contain p-12"

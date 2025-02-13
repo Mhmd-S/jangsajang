@@ -10,17 +10,19 @@ const MenuCard = ({ item }) => {
 			<div className="rounded-3xl">
 				{/* Image Container */}
 				<div
-					className={`relative h-1/2 w-full aspect-video overflow-hidden bg-[#efe5d9]`}
+					className={`relative w-full aspect-sqaure overflow-hidden bg-[#efe5d9]`}
 				>
-					<div className="w-full h-full flex items-center justify-center relative">
-						<p className="absolute top-4 right-4 px-3 font-bold text-md md:text-lg bg-white rounded-3xl border-2 border-[rgb(74,62,54)] shadow-[4px_3px_0px_2px_rgb(74,62,54)]">
+					<div className="w-full h-full aspect-square flex items-center justify-center relative">
+						<p className="absolute z-10 top-4 right-4 px-3 font-bold text-md md:text-lg bg-white rounded-3xl border-2 border-[rgb(74,62,54)] shadow-[4px_3px_0px_2px_rgb(74,62,54)]">
 							{item.price}
 						</p>
 
 						<Image
-							src={item.image || '/placeholder.svg'}
+							src={item.image}
+							className="w-fullp p-4 transition-transform duration-700 ease-in-out group-hover:scale-[1.75] group-hover:rotate-[90deg]"
+							width={500}
+							height={500}
 							alt={item.nameEn}
-							fill
 						/>
 					</div>
 				</div>

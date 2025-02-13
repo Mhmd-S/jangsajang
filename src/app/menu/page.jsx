@@ -106,7 +106,7 @@ const index = () => {
 		<div className="text-[rgb(74,62,54)] pt-32">
 			<div className="flex flex-col pb-3">
 				{/* Menu Categories */}
-				<div className="fixed grid grid-cols-[25%_75%] top-16 left-0 right-0 bg-white overflow-x-auto whitespace-nowrap border-b border-[rgb(74,62,54)] z-10">
+				<div className="fixed grid grid-cols-[25%_75%] z-50 top-16 left-0 right-0 bg-white overflow-x-auto whitespace-nowrap border-b border-[rgb(74,62,54)]">
 					<h1 className="hidden h-full p-4 w-full md:block text-5xl font-bold text-center border-r border-[rgb(74,62,54)]">
 						MENU 메뉴
 					</h1>

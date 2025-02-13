@@ -104,7 +104,7 @@ export default function LocationFinder() {
 	return (
 		<div className="grid grid-cols-[35%_65%] md:grid-cols-[25%,75%] min-h-screen border pt-16 relative">
 			{/* Left Sidebar / States */}
-			<div className="sticky h-screen top-10 border-r border-b border-[#6a3116] text-[#6a3116] bg-white">
+			<div className="sticky h-screen top-16 border-r border-b border-[#6a3116] text-[#6a3116] bg-white">
 				<div className="pt-5 pl-2 md:p-6">
 					<h1 className="flex flex-col justify-center items-center text-sm md:text-4xl p-2 font-bold  mb-6">
 						<span>우리의 위치</span>

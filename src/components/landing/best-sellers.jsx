@@ -8,7 +8,7 @@ const menuItems = [
 	{
 		name: '삼치덮밥',
 		nameEn: 'Samchi Deopbap',
-		image: '/images/bulgogi-bibimbap.jpg',
+		image: '/images/menu/food1.png',
 		calories: '520',
 		price: 'RM19.99',
 		description: 'lorem lorem lorem lorem',
@@ -18,7 +18,7 @@ const menuItems = [
 	{
 		name: '오지어덮밥',
 		nameEn: 'Ojingeo Deopbap',
-		image: '/images/kimchi-bowl.jpg',
+		image: '/images/menu/food2.png',
 		calories: '390',
 		protein: '35',
 		price: 'RM19.99',
@@ -29,7 +29,7 @@ const menuItems = [
 	{
 		name: '양고기덮밥',
 		nameEn: 'Yanggogi Deopbap',
-		image: '/images/chicken-rice.jpg',
+		image: '/images/menu/food3.png',
 		calories: '550',
 		protein: '44',
 		price: 'RM19.99',
