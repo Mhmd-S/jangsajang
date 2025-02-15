@@ -10,10 +10,10 @@ import { MapPin, Map } from 'lucide-react';
 // Sample data - in a real app this would come from an API
 const states = [
 	{
-		name: 'Connecticut',
+		name: 'Malaysia',
 		locations: [
 			{
-				city: 'FAIRFIELD',
+				city: 'Kuala Lumpur',
 				address: '2267 Black Rock Turnpike',
 				unit: 'Unit 15',
 			},
@@ -24,30 +24,12 @@ const states = [
 		],
 	},
 	{
-		name: 'Florida',
+		name: 'South Korea',
 		locations: [
 			{
 				city: 'FAIRFIELD',
-				address: '2267 Black Rock Turnpike',
+				address: '56, Jalan SS15/4C, Subang Jaya 47500',
 				unit: 'Unit 15',
-			},
-			{
-				city: 'WEST HARTFORD (BISHOPS CORNER)',
-				address: '2538 Albany Ave',
-			},
-		],
-	},
-	{
-		name: 'Illinois',
-		locations: [
-			{
-				city: 'FAIRFIELD',
-				address: '2267 Black Rock Turnpike',
-				unit: 'Unit 15',
-			},
-			{
-				city: 'WEST HARTFORD (BISHOPS CORNER)',
-				address: '2538 Albany Ave',
 			},
 		],
 	},
@@ -106,7 +88,7 @@ export default function LocationFinder() {
 			{/* Left Sidebar / States */}
 			<div className="sticky h-screen top-16 border-r border-b border-[#6a3116] text-[#6a3116] bg-white">
 				<div className="pt-5 pl-2 md:p-6">
-					<h1 className="flex flex-col justify-center items-center text-sm md:text-4xl p-2 font-bold  mb-6">
+					<h1 className="flex flex-col justify-center items-center text-xs md:text-4xl p-2 font-bold  mb-6">
 						<span>우리의 위치</span>
 						<span>Our Locations</span>
 					</h1>

@@ -13,7 +13,7 @@ const menuItems = [
 		price: 'RM 19.99',
 		description:
 			'A classic Korean dish with rice, seaweed, and vegetables. ',
-		image: '/images/bulgogi-bibimbap.jpg',
+		image: '/images/menu/food1.png',
 		calories: '520',
 		protein: '22',
 		bgColor: 'bg-[#4285F4]',
@@ -25,7 +25,7 @@ const menuItems = [
 		price: 'RM 19.99',
 		description:
 			'A classic Korean dish with rice, seaweed, and vegetables. ',
-		image: '/images/kimchi-bowl.jpg',
+		image: '/images/menu/food2.png',
 		calories: '390',
 		protein: '35',
 		bgColor: 'bg-[#FF9900]',
@@ -38,7 +38,7 @@ const menuItems = [
 		price: 'RM 19.99',
 		description:
 			'A classic Korean dish with rice, seaweed, and vegetables. ',
-		image: '/images/chicken-rice.jpg',
+		image: '/images/menu/food1.png',
 		calories: '550',
 		protein: '44',
 		bgColor: 'bg-[#EA4335]',

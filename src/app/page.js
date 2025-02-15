@@ -1,7 +1,7 @@
 'use client';
 
 import Marque from '@/components/landing/marque';
-import Feature from '@/components/landing/feature';
+import Promotions from '@/components/landing/promotions';
 import VisitUs from '@/components/landing/visitus';
 import Hero from '@/components/landing/hero';
 import BestSellers from '@/components/landing/best-sellers';
@@ -133,8 +133,6 @@ export default function Home() {
 
 	return (
 		<main className="overflow-x-hidden max-w-screen bg-primary">
-
-
 			<Hero />
 
 			{/* Marque Section */}
@@ -143,7 +141,7 @@ export default function Home() {
 			{/* Menu Preview Section */}
 			<BestSellers />
 
-			<Feature />
+			<Promotions />
 
 			<VisitUs />
 
